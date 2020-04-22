@@ -465,7 +465,11 @@ func (s *Session) recvLoop() error {
 		// Verify the version
 		if hdr.Version() != protoVersion {
 			s.logger.Printf("[ERR] yamux: Invalid protocol version: %d", hdr.Version())
-			return ErrInvalidVersion
+			continue
+			// Since in this case will make the request failed,
+			// temporarily make this continue, and the following
+			// lines are origin.
+			//return ErrInvalidVersion
 		}
 
 		mt := hdr.MsgType()
