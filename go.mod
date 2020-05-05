@@ -1,3 +1,3 @@
-module github.com/actact/yamux
+module github.com/bearbeargo/yamux
 
 go 1.13
